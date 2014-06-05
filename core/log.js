@@ -11,6 +11,10 @@ var fmt = require('util').format;
 var _ = require('lodash');
 var debug = require('./util').getConfig().debug;
 
+var fs = require('fs');
+var config = require('./util').getConfig();
+var fileProperties = config.WriteToFile;
+
 var Log = function() {
   _.bindAll(this);
 };
@@ -25,6 +29,7 @@ Log.prototype = {
     message += fmt.apply(null, args);
 
     console[method](message);
+    this.writeToFile(message);
   },
   error: function() {
     this._write('error', arguments);
@@ -35,6 +40,31 @@ Log.prototype = {
   info: function() {
     this._write('info', arguments);
   }
+}
+
+Log.prototype.writeToFile = function (data) {
+	if (this.writeFileChecker){
+		this.stream.write(data + '\n');
+	}
+}
+
+Log.prototype.writeFileChecker = function () {
+	if (fileProperties.enabled = true) {
+		if (fileProperties.name = "" || fileProperties == undefined){
+			fileProperties.name = 'output.txt';
+		}
+	}
+	
+	return fileProperties.enabled;
+}
+
+Log.prototype.writeFileError = function (err) {
+	if (err){
+		console.log('Error writing to file: See log.js');
+	}
+	else{
+		// File is being written to.
+	}
 }
 
 if(debug)

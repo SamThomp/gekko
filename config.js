@@ -103,6 +103,15 @@ config.custom = {
   my_custom_setting: 10,
 }
 
+// Settings for logging info to file. 
+// Enabling his option will allow all the information 
+// that is being generated and logged to the console
+// to be sent to a file in the root directory of this project
+config.WriteToFile = {
+	enabled: true,
+	name: 'output.txt' // name of file to write to
+}
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //                       CONFIGURING PLUGINS
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -3,6 +3,16 @@
   Lightweight logger, print everything that is send to error, warn
   and messages to stdout (the terminal). If config.debug is set in config
   also print out everything send to debug.
+  
+  Send output to file if config.WriteToFile option is set in the config
+  file. File contents will match the output of the terminal. Enabling
+  this option will have similar functionality as >node gekko > output.log
+  
+  Config Options to enable file writes
+  config.WriteToFile = {
+	enabled: true,
+	name: 'output.txt' // name of file to write to
+ }
 
 */
 

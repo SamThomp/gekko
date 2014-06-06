@@ -44,7 +44,7 @@ Log.prototype = {
 
 Log.prototype.writeToFile = function (data) {
 	if (this.writeFileChecker){
-		this.stream.write(data + '\n');
+		fs.appendFile(fileProperties.name, data + '\n', this.writeFileError);
 	}
 }
 

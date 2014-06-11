@@ -6,7 +6,7 @@
   
   Send output to file if config.WriteToFile option is set in the config
   file. File contents will match the output of the terminal. Enabling
-  this option will have similar functionality as >node gekko > output.log
+  this option will have similar functionality as > node gekko > output.log
   
   Config Options to enable file writes
   config.WriteToFile = {
@@ -58,6 +58,8 @@ Log.prototype.writeToFile = function (data) {
 	}
 }
 
+// IF no filename was specified, write to output.txt
+// by default. 
 Log.prototype.writeFileChecker = function () {
 	if (fileProperties.enabled = true) {
 		if (fileProperties.name = "" || fileProperties == undefined){
@@ -68,12 +70,13 @@ Log.prototype.writeFileChecker = function () {
 	return fileProperties.enabled;
 }
 
+// If there is an error send output directly to console
+// and do not use built in method, otherwise write 
+// will fail a second time. 
 Log.prototype.writeFileError = function (err) {
 	if (err){
 		console.log('Error writing to file: See log.js');
-	}
-	else{
-		// File is being written to.
+		console.log(err);
 	}
 }
 

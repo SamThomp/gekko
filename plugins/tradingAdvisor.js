@@ -9,7 +9,8 @@ var methods = [
   'DEMA',
   'PPO',
   'RSI',
-  'custom'
+  'custom',
+  'StochRSI'
 ];
 
 var Actor = function() {

@@ -22,7 +22,7 @@ config.debug = true; // for additional logging / debugging
 // Monitor the live market
 config.watch = {
   enabled: true,
-  exchange: 'Bitstamp', // 'MtGox', 'BTCe', 'Bitstamp', 'cexio' or 'kraken'
+  exchange: 'Bitstamp', // 'MtGox', 'BTCe', 'Bitstamp', 'cexio', 'Bitfinex' or 'kraken'
   currency: 'USD',
   asset: 'BTC'
 }
@@ -85,6 +85,22 @@ config.PPO = {
     persistence: 2
   }
 };
+
+// CCI settings:
+config.CCI = {
+  constant: 7,
+  history: 30,
+  // amount of candles to remember and base initial EMAs on
+  // the difference between the EMAs (to act as triggers)
+  thresholds: {
+    down: -0.025,
+    up: 0.025
+    // How many candle intervals should a trend persist
+    // before we consider it real?
+    persistence: 2
+  }
+};
+
 
 // RSI settings:
 config.RSI = {

@@ -10,6 +10,7 @@ var methods = [
   'PPO',
   'RSI',
   'custom',
+  'CCI',
   'StochRSI'
 ];
 

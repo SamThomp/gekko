@@ -21,6 +21,15 @@ var Indicators = {
   RSI: {
     factory: require(indicatorsPath + 'RSI'),
     input: 'candle'
+  },
+  ,
+	CCI: {
+    factory: require(indicatorsPath + 'CCI'),
+    input: 'candle'
+  },
+	LRC: {
+    factory: require(indicatorsPath + 'LRC'),
+    input: 'candle'
   }
 };
 

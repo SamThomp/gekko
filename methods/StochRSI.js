@@ -72,20 +72,19 @@ method.check = function() {
 	this.RSIhistory.shift();
 	
 	var rsi = this.indicators.rsi;
-	var rsiVal = rsi.rsi;
+  var rsiVal = rsi.rsi;
 	
 	this.RSIhistory.push(rsiVal);
 	this.lowestRSI = _.min(this.RSIhistory);
 	this.highestRSI = _.max(this.RSIhistory);
 	this.rsiVal = rsiVal;
 	
-	log.info("RSI Value:\t\t" + this.rsiVal.toFixed(2));
-	this.rsiVal = ((1 + this.rsiVal - this.lowestRSI) / (this.highestRSI - this.lowestRSI)) * 100;
-	
-	log.info("StochRSI min:\t\t" + this.lowestRSI.toFixed(2));
-	log.info("StochRSI max:\t\t" + this.highestRSI.toFixed(2));
-	log.info("StochRSI history:\t " + this.RSIhistory.length);
-	
+	//console.log(rsiVal)
+	this.rsiVal = ((this.rsiVal - this.lowestRSI) / (this.highestRSI - this.lowestRSI)) * 100;
+	//console.log(this.RSIhistory)
+	log.info("StochRSI min:\t\t" + this.lowestRSI);
+	log.info("StochRSI max:\t\t" + this.highestRSI);
+	log.info("StochRSI history length: " + this.RSIhistory.length);
 	log.info("StochRSI Value:\t\t" + this.rsiVal.toFixed(2));
 	
 	this.RSIhistory.shift();	

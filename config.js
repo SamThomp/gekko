@@ -33,9 +33,9 @@ config.watch = {
 
 config.tradingAdvisor = {
   enabled: true,
-  method: 'DEMA',
-  candleSize: 60,
-  historySize: 50
+  method: 'CCI',
+  candleSize: 5,
+  historySize: 15
 }
 
 // Exponential Moving Averages settings:
@@ -94,7 +94,7 @@ config.CCI = {
   // the difference between the EMAs (to act as triggers)
   thresholds: {
     down: -0.025,
-    up: 0.025
+    up: 0.025,
     // How many candle intervals should a trend persist
     // before we consider it real?
     persistence: 2

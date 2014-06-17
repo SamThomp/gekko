@@ -40,17 +40,17 @@ method.init = function() {
 // calculated parameters.
 method.log = function() {
   var digits = 8;
-  var rsi = this.indicators.rsi;
+  var rsiVal = this.indicators.rsi;
 	
 	this.RSIhistory.shift();
 	this.RSIhistory.push(rsiVal);
 	this.lowestRSI = _.min(RSIhistory);
 	this.highestRSI = _.max(RSIhistory);
 		
-	this.rsiVal = ((rsiVal - lowestRSI) / (highestRSI - lowestRSI)) * 100;
+	this.rsiVal = ((this.rsiVal - this.lowestRSI) / (this.highestRSI - this.lowestRSI)) * 100;
 
   log.debug('calculated StochRSI properties for candle:');
-  log.debug('\t', 'rsi:', rsi.rsi.toFixed(digits));
+  log.debug('\t', 'rsi:', this.rsiVal.toFixed(digits));
 	log.debug("StochRSI min:\t\t" + this.lowestRSI);
 	log.debug("StochRSI max:\t\t" + this.highestRSI);
 	log.debug("StochRSI history length: " + this.RSIhistory.length);
